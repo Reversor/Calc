@@ -5,18 +5,19 @@ import java.util.Scanner;
 
 public class Calc {
 
-    public static void main(String[] args) {
-        try (Scanner scanner = new Scanner(System.in)) {
-            String s;
-            while ((s = scanner.nextLine()) != null) {
-                if (s.equalsIgnoreCase("exit")) {
-                    System.exit(0);
-                }
+  public static void main(String[] args) {
+    try (Scanner scanner = new Scanner(System.in)) {
+      for (; ; ) {
+        String s = scanner.nextLine();
 
-                Expression expression = new Expression(s);
-                System.out.println(expression.eval(false));
-            }
+        if (s.equalsIgnoreCase("exit")) {
+          break;
         }
+
+        Expression expression = new Expression(s);
+        System.out.println(expression.eval(false));
+      }
     }
+  }
 
 }
